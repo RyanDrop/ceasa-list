@@ -1,0 +1,75 @@
+<mat-stepper linear #stepper>
+  <mat-step>
+    <ng-template matStepLabel>Welcome</ng-template>
+    <h1>Olá, seja bem-vindo!</h1>
+    <p>Vou auxiliar a criar sua lista, com apenas alguns dados.</p>
+    <p>Toque em continuar.</p>
+    <div class="actions">
+      <button mat-raised-button color="primary" matStepperNext>
+        Continuar
+      </button>
+    </div>
+  </mat-step>
+  <mat-step [stepControl]="listForm" [completed]="listForm.valid">
+    <form [formGroup]="listForm">
+      <ng-template matStepLabel>Preencha sua prancheta</ng-template>
+      <mat-form-field appearance="outline">
+        <mat-label>Nome</mat-label>
+        <input
+          matInput
+          placeholder="Ryan"
+          formControlName="name"
+          maxlength="15"
+          required
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Data do pedido</mat-label>
+        <input
+          matInput
+          [matDatepicker]="picker"
+          formControlName="date"
+          dateFormat
+        />
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Título</mat-label>
+        <input
+          matInput
+          placeholder="Ceasa de quinta-feira"
+          formControlName="title"
+          required
+          maxlength="30"
+        />
+      </mat-form-field>
+    </form>
+    <div class="actions">
+      <button mat-raised-button matStepperPrevious>Voltar</button>
+      <button mat-raised-button color="primary" matStepperNext>
+        Continuar
+      </button>
+    </div>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Finalizar</ng-template>
+    <p>Clique em finalizar, para irmos a sua prancheta.</p>
+    <p>Ou em voltar caso deseje mudar algum dado</p>
+    <div class="actions">
+      <button mat-raised-button matStepperPrevious>Voltar</button>
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="finish()"
+        [disabled]="!listForm.valid"
+      >
+        Finalizar
+      </button>
+    </div>
+  </mat-step>
+</mat-stepper>
