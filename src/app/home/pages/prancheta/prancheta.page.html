@@ -1,1 +1,19 @@
-<p>prancheta works!</p>
+<h1>Olá, {{username}}!</h1>
+
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title> Seu estoque </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div class="stock">
+      <div class="stock-item" *ngFor="let item of stock">
+        <p>{{item.name}}</p>
+        <p>Estoque: <span>{{item.quantity}}</span></p>
+      </div>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
+
+<section class="items-stock">
+  <h2></h2>
+</section>

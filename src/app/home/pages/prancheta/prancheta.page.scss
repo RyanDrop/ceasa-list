@@ -1,1 +1,52 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  background-color: #f5f5f5;
+  width: calc(100vw - 40px);
+  height: calc(100vh - 40px);
+  padding: 20px;
 
+  h1 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  .mat-expansion-panel-header-title {
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  .stock {
+    display: grid;
+    grid-gap: 10px;
+    justify-content: space-between;
+    grid-template-columns: 1fr;
+    @media (min-width: 400px) {
+      grid-template-columns: repeat(auto-fit, 150px);
+    }
+
+    .stock-item {
+      background-color: #3b78ff;
+      border-radius: 12px;
+      padding: 0px 10px;
+      p {
+        font-family: "Poppins", sans-serif;
+        font-weight: 500;
+        font-size: 14px;
+        color: #fff;
+        margin: 10px 0;
+        span {
+          font-weight: 400;
+          color: #fff;
+        }
+      }
+    }
+  }
+}
